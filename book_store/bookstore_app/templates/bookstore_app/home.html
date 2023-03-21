@@ -1,0 +1,12 @@
+{% extends 'bookstore_app/base.html' %}
+
+{% block content %}
+<h1>Welcome to the Bookstore!</h1>
+<ul>
+    <li><a href="{% url 'bookstore_app:add_customer' %}">Add Customer</a></li>
+    <li><a href="{% url 'bookstore_app:add_book' %}">Add Book</a></li>
+    <li><a href="{% url 'bookstore_app:list_customers' %}">List Customers</a></li>
+    <li><a href="{% url 'bookstore_app:list_books' %}">List Books</a></li>
+    <!-- Add more options here -->
+</ul>
+{% endblock %}

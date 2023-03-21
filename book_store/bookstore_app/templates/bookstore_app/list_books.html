@@ -1,0 +1,53 @@
+{% extends 'bookstore_app/base.html' %}
+
+{% block content %}
+
+<a href="{% url 'bookstore_app:home' %}" class="home-button">
+    <span class="material-icons">home</span>
+  </a>
+
+  <h2>List Books</h2>
+
+  <form method="get">
+    <label for="sort_by">Sort by:</label>
+    <select name="sort_by" id="sort_by" onchange="this.form.submit()">
+      <option value="price_asc" {% if sort_by == 'price_asc' %}selected{% endif %}>Price: Low to High</option>
+      <option value="price_desc" {% if sort_by == 'price_desc' %}selected{% endif %}>Price: High to Low</option>
+    </select>
+
+    <label for="price_range">Price range:</label>
+    <select name="price_range" id="price_range" onchange="this.form.submit()">
+      <option value="all" {% if price_range == 'all' %}selected{% endif %}>All</option>
+      <option value="0-50" {% if price_range == '0-50' %}selected{% endif %}>$0 - $50</option>
+      <option value="50-100" {% if price_range == '50-100' %}selected{% endif %}>$50 - $100</option>
+      <option value="100-500" {% if price_range == '100-500' %}selected{% endif %}>$100 - $500</option>
+    </select>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Publication Date</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+          <td>{{ book.title }}</td>
+          <td>{{ book.isbn }}</td>
+          <td>{{ book.publication_date }}</td>
+          <td>${{ book.price }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No books found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
+     

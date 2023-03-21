@@ -1,0 +1,15 @@
+{% extends 'bookstore_app/base.html' %}
+
+{% block content %}
+
+<a href="{% url 'bookstore_app:home' %}" class="home-button">
+    <span class="material-icons">home</span>
+  </a>
+
+<h1>Add Book</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Book</button>
+</form>
+{% endblock %}

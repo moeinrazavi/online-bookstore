@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <title>Bookstore</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .home-button {
+          display: inline-block;
+          margin-bottom: 1rem;
+          padding: 0.5rem 1rem;
+          border: 1px solid #000;
+          text-decoration: none;
+          color: #000;
+          background-color: #fff;
+          font-weight: bold;
+          transition: background-color 0.3s, color 0.3s;
+        }
+    
+        .home-button:hover {
+          background-color: #000;
+          color: #fff;
+        }
+      </style>
+</head>
+<body>
+    <div id="content" class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
